@@ -1,5 +1,5 @@
-export function multiply(a: number, b: number): Promise<number> {
-  return Promise.resolve(a * b);
-}
 
-export * from './primatives/stack';
+import * as Layout from './primatives/stack';
+import * as Buttons from './buttons';
+
+export {Layout, Buttons}
