@@ -1,4 +1,5 @@
-import React, { type ReactChildren } from 'react';
+import React, { type PropsWithChildren } from 'react';
+
 import {
   Pressable,
   type ViewStyle,
@@ -9,13 +10,12 @@ import {
 export type ButtonProps = {
   style: StyleProp<ViewStyle>;
   onPress: (event: GestureResponderEvent) => void;
-  children: ReactChildren;
 };
 
-export const Button = ({ onPress, style, children }: ButtonProps) => {
+export const Button = (props: PropsWithChildren<ButtonProps>) => {
   return (
-    <Pressable onPress={onPress} style={style}>
-      {children}
+    <Pressable onPress={props.onPress} style={props.style}>
+      {props.children}
     </Pressable>
   );
 };
