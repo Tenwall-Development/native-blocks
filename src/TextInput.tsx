@@ -2,12 +2,12 @@ import React from 'react';
 import { VStack } from './primatives/Stack';
 import { Text, TextInput, type TextStyle, type ViewStyle } from 'react-native';
 
-type TextInputProps = {
+export type TextInputProps = {
   containerStyle: ViewStyle;
   errorStyle: TextStyle;
   textInputStyle: TextStyle;
   text: string;
-  textChanged: () => {};
+  textChanged: () => void;
   errorMessage: string;
 };
 

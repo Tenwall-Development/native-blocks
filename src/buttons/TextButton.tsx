@@ -15,7 +15,7 @@ export type TextButtonProps = {
   textStyle?: StyleProp<TextStyle>;
 };
 
-const TextButton = (props: TextButtonProps) => {
+export const TextButton = (props: TextButtonProps) => {
   return (
     <Button onPress={props.onPress} style={props.style}>
       <Text style={props.textStyle}>{props.title}</Text>

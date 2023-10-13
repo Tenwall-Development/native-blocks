@@ -1,2 +1,4 @@
-export * from './Button';
-export * from './TextButton';
+import { Button } from './Button';
+import { TextButton } from './TextButton';
+
+export { Button, TextButton };
