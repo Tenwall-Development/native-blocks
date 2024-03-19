@@ -9,7 +9,7 @@ import {
 import { Button } from './Button';
 
 import { ButtonStyle, TextStyle as MyTextStyle } from '../../styles';
-import { useTheme } from '../../context';
+import { withStyle } from '../hoc/WithStyle';
 
 export type TextButtonProps = {
   titles: string;
@@ -26,17 +26,6 @@ export const TextButton = (props: TextButtonProps) => {
   );
 };
 
-const withStyle = <P extends object>(
-  ComponentToTheme: React.ComponentType<P>,
-  styleFunction: any
-) => {
-  return function StyledComponent(props: P) {
-    const themeCtx = useTheme();
-    const styles = styleFunction(themeCtx);
-    return <ComponentToTheme {...props} {...styles} />;
-  };
-};
-
 const makeStyle = (theme: any) => {
   return {
     style: {
@@ -50,4 +39,4 @@ const makeStyle = (theme: any) => {
   };
 };
 
-export const StyledButton = withStyle<TextButtonProps>(TextButton, makeStyle);
+export const StyledTextButton = withStyle<TextButtonProps>(TextButton, makeStyle);
