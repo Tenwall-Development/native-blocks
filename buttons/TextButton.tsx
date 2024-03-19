@@ -9,7 +9,7 @@ import {
 import { Button } from './Button';
 
 export type TextButtonProps = {
-  title: string;
+  titles: string;
   onPress: (event: GestureResponderEvent) => void;
   style?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
