@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, createContext, type FunctionComponent } from 'react';
 import {
   type GestureResponderEvent,
   type StyleProp,
@@ -7,6 +7,8 @@ import {
   type ViewStyle,
 } from 'react-native';
 import { Button } from './Button';
+
+const Theme = createContext({})
 
 export type TextButtonProps = {
   titles: string;
@@ -23,8 +25,30 @@ export const TextButton = (props: TextButtonProps) => {
   );
 };
 
-export const StyledTextbutton = () =>{
-  return TextButton
+const withStyle = <P extends object>(ComponentToTheme: React.ComponentType<P>, styleFunction : any) => {
+
+    const themeCtx = useContext(Theme)
+    const styles   = styleFunction(themeCtx)
+
+    return function StyledComponent(props : any){
+      return (
+        <ComponentToTheme 
+          {...props} 
+          {...styles}
+        ></ComponentToTheme>
+      )
+    }
 }
 
-export default StyledTextbutton;
+const makeStyle = (theme : any) =>{
+
+  const props = {
+    style: {
+      color: theme.primary
+    }
+  }
+
+  return props
+}
+
+export const StyledButton = withStyle<TextButtonProps>(TextButton, makeStyle)
