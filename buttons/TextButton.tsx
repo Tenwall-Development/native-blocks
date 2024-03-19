@@ -26,31 +26,28 @@ export const TextButton = (props: TextButtonProps) => {
   );
 };
 
-const withStyle = <P extends object>(ComponentToTheme: React.ComponentType<P>, styleFunction : any) => {
+const withStyle = <P extends object>(
+  ComponentToTheme: React.ComponentType<P>,
+  styleFunction: any
+) => {
+  return function StyledComponent(props: P) {
+    const themeCtx = useTheme();
+    const styles = styleFunction(themeCtx);
+    return <ComponentToTheme {...props} {...styles} />;
+  };
+};
 
-  return function StyledComponent(props : P){
-      const themeCtx = useTheme()
-      const styles   = styleFunction(themeCtx)
-      return (
-        <ComponentToTheme 
-          {...props} 
-          {...styles}
-        />
-      )
-    }
-}
-
-const makeStyle = (theme : any) =>{
+const makeStyle = (theme: any) => {
   return {
     style: {
       ...ButtonStyle.primary,
-      backgroundColor: theme.primary
+      backgroundColor: theme.primary,
     },
-    textStyle:{
+    textStyle: {
       ...MyTextStyle.h3,
-      color: theme.secondary
-    }
-  }
-}
+      color: theme.secondary,
+    },
+  };
+};
 
-export const StyledButton = withStyle<TextButtonProps>(TextButton, makeStyle)
+export const StyledButton = withStyle<TextButtonProps>(TextButton, makeStyle);
