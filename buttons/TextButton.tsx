@@ -1,4 +1,4 @@
-import React, { useContext, createContext, type FunctionComponent } from 'react';
+import React from 'react';
 import {
   type GestureResponderEvent,
   type StyleProp,
@@ -8,7 +8,8 @@ import {
 } from 'react-native';
 import { Button } from './Button';
 
-const Theme = createContext({})
+import { ButtonStyle, TextStyle as MyTextStyle } from '../../styles';
+import { useTheme } from '../../context';
 
 export type TextButtonProps = {
   titles: string;
@@ -20,35 +21,36 @@ export type TextButtonProps = {
 export const TextButton = (props: TextButtonProps) => {
   return (
     <Button onPress={props.onPress} style={props.style}>
-      <Text style={props.textStyle}>{props.title}</Text>
+      <Text style={props.textStyle}>{props.titles}</Text>
     </Button>
   );
 };
 
 const withStyle = <P extends object>(ComponentToTheme: React.ComponentType<P>, styleFunction : any) => {
 
-    const themeCtx = useContext(Theme)
-    const styles   = styleFunction(themeCtx)
-
-    return function StyledComponent(props : any){
+  return function StyledComponent(props : P){
+      const themeCtx = useTheme()
+      const styles   = styleFunction(themeCtx)
       return (
         <ComponentToTheme 
           {...props} 
           {...styles}
-        ></ComponentToTheme>
+        />
       )
     }
 }
 
 const makeStyle = (theme : any) =>{
-
-  const props = {
+  return {
     style: {
-      color: theme.primary
+      ...ButtonStyle.primary,
+      backgroundColor: theme.primary
+    },
+    textStyle:{
+      ...MyTextStyle.h3,
+      color: theme.secondary
     }
   }
-
-  return props
 }
 
 export const StyledButton = withStyle<TextButtonProps>(TextButton, makeStyle)
