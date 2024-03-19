@@ -23,4 +23,8 @@ export const TextButton = (props: TextButtonProps) => {
   );
 };
 
-export default TextButton;
+export const StyledTextbutton = () =>{
+  return TextButton
+}
+
+export default StyledTextbutton;
