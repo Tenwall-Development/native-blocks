@@ -39,4 +39,7 @@ const makeStyle = (theme: any) => {
   };
 };
 
-export const StyledTextButton = withStyle<TextButtonProps>(TextButton, makeStyle);
+export const StyledTextButton = withStyle<TextButtonProps>(
+  TextButton,
+  makeStyle
+);

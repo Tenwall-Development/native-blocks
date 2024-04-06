@@ -1,5 +1,10 @@
 import React, { type PropsWithChildren } from 'react';
-import { View, type DimensionValue, type FlexAlignType, type ViewStyle } from 'react-native';
+import {
+  View,
+  type DimensionValue,
+  type FlexAlignType,
+  type ViewStyle,
+} from 'react-native';
 
 export type SpacingAll = {
   b?: number;
@@ -14,7 +19,7 @@ export type SpacingVH = {
 };
 
 export interface IBoxProps {
-  style?:   ViewStyle | undefined;
+  style?: ViewStyle | undefined;
   align?: FlexAlignType;
   justifyContent?:
     | 'flex-start'
