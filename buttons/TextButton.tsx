@@ -30,11 +30,11 @@ const makeStyle = (theme: any) => {
   return {
     style: {
       ...ButtonStyle.primary,
-      backgroundColor: theme.primary,
+      backgroundColor: theme.background,
     },
     textStyle: {
       ...MyTextStyle.h3,
-      color: theme.secondary,
+      color: theme.primary,
     },
   };
 };

@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 export type ButtonProps = {
-  style: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
   onPress: (event: GestureResponderEvent) => void;
 };
 

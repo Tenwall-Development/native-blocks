@@ -3,6 +3,7 @@ import {
   View,
   type DimensionValue,
   type FlexAlignType,
+  type LayoutChangeEvent,
   type ViewStyle,
 } from 'react-native';
 
@@ -48,6 +49,7 @@ export interface IBoxProps {
   flexCross?: boolean;
   height?: DimensionValue;
   width?: DimensionValue;
+  onLayout?: ((event: LayoutChangeEvent) => void) | undefined;
 }
 
 const boxDefaultProps: IBoxProps = {
