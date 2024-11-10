@@ -6,7 +6,7 @@ import {
   type StyleProp,
   type GestureResponderEvent,
 } from 'react-native';
-import { ButtonStyle } from '../../styles';
+import { ButtonStyle } from '../../native_design';
 import { withStyle } from '../hoc/WithStyle';
 
 export type ButtonProps = {

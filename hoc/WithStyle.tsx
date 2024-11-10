@@ -11,6 +11,8 @@ export const withStyle = <P extends object>(
 
     const properties = Object.getOwnPropertyNames(styles);
 
+    console.log("properties " + JSON.stringify(properties))
+
     properties.map((item) => {
       const propsIDX = Object.keys(props).indexOf(item);
       if (propsIDX >= 0) {
