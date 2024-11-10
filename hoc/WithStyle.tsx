@@ -8,6 +8,24 @@ export const withStyle = <P extends object>(
   return function StyledComponent(props: P) {
     const themeCtx = useTheme();
     const styles = styleFunction(themeCtx);
+
+    const properties = Object.getOwnPropertyNames(styles);
+
+    properties.map((item) => {
+      const propsIDX = Object.keys(props).indexOf(item);
+      if (propsIDX >= 0) {
+        const passed_style = (props as any)[item];
+
+        let newStyle = { ...styles[item] };
+
+        for (const [key, value] of Object.entries(passed_style)) {
+          newStyle[key] = value;
+        }
+
+        styles[item] = newStyle;
+      }
+    });
+
     return <ComponentToTheme {...props} {...styles} />;
   };
 };
