@@ -1,5 +1,11 @@
 import React, { type PropsWithChildren } from 'react';
-import { View, type FlexAlignType, type ViewStyle } from 'react-native';
+import {
+  View,
+  type DimensionValue,
+  type FlexAlignType,
+  type LayoutChangeEvent,
+  type ViewStyle,
+} from 'react-native';
 
 export type SpacingAll = {
   b?: number;
@@ -14,7 +20,7 @@ export type SpacingVH = {
 };
 
 export interface IBoxProps {
-  style?: ViewStyle;
+  style?: ViewStyle | undefined;
   align?: FlexAlignType;
   justifyContent?:
     | 'flex-start'
@@ -41,6 +47,9 @@ export interface IBoxProps {
   gap?: number;
   flexMain?: boolean;
   flexCross?: boolean;
+  height?: DimensionValue;
+  width?: DimensionValue;
+  onLayout?: ((event: LayoutChangeEvent) => void) | undefined;
 }
 
 const boxDefaultProps: IBoxProps = {
@@ -82,6 +91,8 @@ export const Box = (propsIn: PropsWithChildren<IBoxProps>) => {
         gap: props.gap,
         rowGap: props.rowGap,
         columnGap: props.colGap,
+        height: props.height,
+        width: props.width,
         ...props.style,
       }}
     >

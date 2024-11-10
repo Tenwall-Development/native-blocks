@@ -6,9 +6,11 @@ import {
   type StyleProp,
   type GestureResponderEvent,
 } from 'react-native';
+import { ButtonStyle } from '../../styles';
+import { withStyle } from '../hoc/WithStyle';
 
 export type ButtonProps = {
-  style: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
   onPress: (event: GestureResponderEvent) => void;
 };
 
@@ -19,3 +21,14 @@ export const Button = (props: PropsWithChildren<ButtonProps>) => {
     </Pressable>
   );
 };
+
+const makeStyle = (theme: any) => {
+  return {
+    style: {
+      ...ButtonStyle.primary,
+      backgroundColor: theme.background,
+    },
+  };
+};
+
+export const StyledButton = withStyle<ButtonProps>(Button, makeStyle);
