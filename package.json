@@ -1,0 +1,22 @@
+{
+  "name": "native-blocks-core",
+  "version": "1.0.0",
+  "description": "A collection of unstyled ReactNative Components",
+  "main": "index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tenwall-Development/native-blocks-internal.git"
+  },
+  "keywords": [
+    "ReactNative"
+  ],
+  "author": "Seth Climenhaga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tenwall-Development/native-blocks-internal/issues"
+  },
+  "homepage": "https://github.com/Tenwall-Development/native-blocks-internal#readme"
+}
