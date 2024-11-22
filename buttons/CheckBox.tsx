@@ -18,7 +18,8 @@ export type CheckBoxProps = {
   style?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
   checkMark :  FC<SvgProps>;
-  checked: boolean
+  checked: boolean;
+  iconSize: number | null;
 };
 
 export const CheckBox = (props: CheckBoxProps) => {
@@ -26,7 +27,7 @@ export const CheckBox = (props: CheckBoxProps) => {
     <HStack>
         <Button onPress={props.onPress} style={props.style}>
         {
-          props.checked ? <Icon SVGComponent={props.checkMark} /> : null
+          props.checked ? <Icon SVGComponent={props.checkMark} size={props.iconSize ?? 12} /> : null
         }
         </Button>
         <Text style={props.textStyle}>{props.titles}</Text>
