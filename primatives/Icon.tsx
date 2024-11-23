@@ -17,6 +17,6 @@ export const Icon: FC<IconProps> = ({
   style,
 }: IconProps) => {
   return (
-    <SVGComponent fill={color} width={size} height={size} style={style} />
+    <SVGComponent width={size} height={size} style={style} />
   );
 };

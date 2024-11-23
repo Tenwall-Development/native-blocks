@@ -30,13 +30,15 @@ export const CheckBox = (props: CheckBoxProps) => {
   return (
     <Button onPress={props.onPress}>
       <HStack justifyContent='center'>
-        <View style={props.checked ? props.style : props.checkedBtnstyle}>
+        <View style={props.checked ? props.checkedBtnstyle : props.style}>
         {
           props.checked ? (
             <Icon 
               SVGComponent={props.checkMark} 
               size={props.iconSize ?? 12} 
-              color={props.iconColor} /> 
+              color={props.iconColor} 
+              style={{"zIndex": 2}}
+              /> 
           ) : null
         }
         </View>
