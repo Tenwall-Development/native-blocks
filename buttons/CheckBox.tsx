@@ -11,6 +11,7 @@ import { HStack } from '../primatives/Stack';
 
 import { SvgProps } from 'react-native-svg';
 import {Icon} from '../primatives/Icon'
+import { Box } from '../primatives/Box';
 
 export type CheckBoxProps = {
   titles: string;
@@ -26,16 +27,18 @@ export type CheckBoxProps = {
 
 export const CheckBox = (props: CheckBoxProps) => {
   return (
-    <Button onPress={props.onPress} style={props.checked ? props.style : props.checkedBtnstyle}>
+    <Button onPress={props.onPress}>
       <HStack>
-      {
-        props.checked ? (
-          <Icon 
-            SVGComponent={props.checkMark} 
-            size={props.iconSize ?? 12} 
-            color={props.iconColor} /> 
-        ) : null
-      }
+        <Box style={props.checked ? props.style : props.checkedBtnstyle}>
+        {
+          props.checked ? (
+            <Icon 
+              SVGComponent={props.checkMark} 
+              size={props.iconSize ?? 12} 
+              color={props.iconColor} /> 
+          ) : null
+        }
+        </Box>
       <Text style={props.textStyle}>{props.titles}</Text>
       </HStack>
     </Button>
