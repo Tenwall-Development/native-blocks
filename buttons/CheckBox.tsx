@@ -5,6 +5,7 @@ import {
   Text,
   type TextStyle,
   type ViewStyle,
+  View
 } from 'react-native';
 import { Button } from './Button';
 import { HStack } from '../primatives/Stack';
@@ -14,7 +15,7 @@ import {Icon} from '../primatives/Icon'
 import { Box } from '../primatives/Box';
 
 export type CheckBoxProps = {
-  titles: string;
+  title: string;
   onPress: (event: GestureResponderEvent) => void;
   style?: StyleProp<ViewStyle>;
   checkedBtnstyle?: StyleProp<ViewStyle>;
@@ -28,8 +29,8 @@ export type CheckBoxProps = {
 export const CheckBox = (props: CheckBoxProps) => {
   return (
     <Button onPress={props.onPress}>
-      <HStack>
-        <Box style={props.checked ? props.style : props.checkedBtnstyle}>
+      <HStack justifyContent='center'>
+        <View style={props.checked ? props.style : props.checkedBtnstyle}>
         {
           props.checked ? (
             <Icon 
@@ -38,8 +39,8 @@ export const CheckBox = (props: CheckBoxProps) => {
               color={props.iconColor} /> 
           ) : null
         }
-        </Box>
-      <Text style={props.textStyle}>{props.titles}</Text>
+        </View>
+        <Text style={props.textStyle}>{props.title}</Text>
       </HStack>
     </Button>
   );
