@@ -29,7 +29,7 @@ export const TextInputField = (props: TextInputProps) => {
   );
 };
 
-import { InputStyle, TextStyle as MyTextStyle } from '../styles';
+import { InputStyle, TextStyle as MyTextStyle } from '../native_design';
 import { withStyle } from './hoc/WithStyle';
 
 const makeStyle = (theme: any) => {

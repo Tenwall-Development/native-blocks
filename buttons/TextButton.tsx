@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { Button } from './Button';
 
-import { ButtonStyle, TextStyle as MyTextStyle } from '../../styles';
+import { ButtonStyle, TextStyle as MyTextStyle } from '../../native_design';
 import { withStyle } from '../hoc/WithStyle';
 
 export type TextButtonProps = {
