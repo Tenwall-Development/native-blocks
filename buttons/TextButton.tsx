@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { Button } from './Button';
 
-import { ButtonStyle, TextStyle as MyTextStyle } from '../../styles';
+import { ButtonStyle, TextStyle as MyTextStyle } from '../../native_design';
 import { withStyle } from '../hoc/WithStyle';
 
 export type TextButtonProps = {
@@ -25,22 +25,3 @@ export const TextButton = (props: TextButtonProps) => {
     </Button>
   );
 };
-
-const makeStyle = (theme: any) => {
-  return {
-    style: {
-      ...ButtonStyle.primary,
-      backgroundColor: theme.background,
-    },
-    textStyle: {
-      ...MyTextStyle.h3,
-      color: theme.primary,
-    },
-  };
-};
-
-export const StyledTextButton = withStyle<TextButtonProps>(
-  TextButton,
-  makeStyle
-);
-
