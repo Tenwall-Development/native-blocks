@@ -50,6 +50,11 @@ export interface IBoxProps {
   height?: DimensionValue;
   width?: DimensionValue;
   onLayout?: ((event: LayoutChangeEvent) => void) | undefined;
+  flexWrap?:
+  | 'wrap'
+  | 'nowrap'
+  | 'wrap-reverse'
+  | undefined;
 }
 
 const boxDefaultProps: IBoxProps = {
@@ -59,6 +64,7 @@ const boxDefaultProps: IBoxProps = {
   p: 0,
   flexMain: true,
   flexCross: true,
+  flexWrap: "nowrap"
 };
 
 export const Box = (propsIn: PropsWithChildren<IBoxProps>) => {
@@ -93,6 +99,7 @@ export const Box = (propsIn: PropsWithChildren<IBoxProps>) => {
         columnGap: props.colGap,
         height: props.height,
         width: props.width,
+        flexWrap: props.flexWrap,
         ...props.style,
       }}
     >
