@@ -29,7 +29,7 @@ export type CheckBoxProps = {
 export const CheckBox = (props: CheckBoxProps) => {
   return (
     <Button onPress={props.onPress}>
-      <HStack justifyContent='center'>
+      <HStack flexMain={false} justifyContent='center'>
         <View style={props.checked ? props.checkedBtnstyle : props.style}>
         {
           props.checked ? (
