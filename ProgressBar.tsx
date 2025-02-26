@@ -1,7 +1,9 @@
 import React from 'react';
 import { withStyle } from './hoc/WithStyle';
 import {
+  StyleSheet,
   Text,
+  View,
   type DimensionValue,
   type TextStyle,
   type ViewStyle,
@@ -28,14 +30,27 @@ export const ProgessBar = (props: ProgressBarProps) => {
       flexMain={props.height === undefined}
       justifyContent="flex-start"
     >
+      <View style={styles.stack}>
+        <Text style={props.textStyle}>{(props.progressTextDisplay == 'percent') ? `${Math.round((props.progress / props.realMax) * 100)}%` : `${props.progress}/${props.realMax}`}</Text>
+
+      </View>
       <HStack
         style={props.barStyle}
         width={`${(props.progress / props.realMax) * 100}%` as DimensionValue}
         flexMain={false}
         justifyContent="flex-start"
       >
-        <Text style={props.textStyle}>{(props.progressTextDisplay == 'percent') ? `${Math.round((props.progress / props.realMax) * 100)}%` : `${props.progress}/${props.realMax}`}</Text>
       </HStack>
     </HStack>
   );
 };
+
+const styles = StyleSheet.create({
+  stack:{
+    position: 'absolute',
+    left: 10,
+    zIndex: 3, // works on ios
+    elevation: 3, // works on android
+  }
+})
+ 
