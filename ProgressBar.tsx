@@ -8,13 +8,17 @@ import {
 } from 'react-native';
 import { HStack } from './primatives/Stack';
 
+
+
 export type ProgressBarProps = {
   backgroundStyle?: ViewStyle;
   barStyle?: ViewStyle;
   textStyle?: TextStyle;
   height?: DimensionValue;
   progress: number;
-};
+  progressTextDisplay: 'percent' | 'out-of';
+  realMax: number;
+}
 
 export const ProgessBar = (props: ProgressBarProps) => {
   return (
@@ -26,11 +30,11 @@ export const ProgessBar = (props: ProgressBarProps) => {
     >
       <HStack
         style={props.barStyle}
-        width={`${props.progress}%` as DimensionValue}
+        width={`${(props.progress / props.realMax) * 100}%` as DimensionValue}
         flexMain={false}
         justifyContent="flex-start"
       >
-        <Text style={props.textStyle}>{`${Math.round(props.progress)}%`}</Text>
+        <Text style={props.textStyle}>{(props.progressTextDisplay == 'percent') ? `${Math.round((props.progress / props.realMax) * 100)}%` : `${props.progress}/${props.realMax}`}</Text>
       </HStack>
     </HStack>
   );
