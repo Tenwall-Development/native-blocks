@@ -6,7 +6,7 @@ import {
   type TextStyle,
   type ViewStyle,
 } from 'react-native';
-import { HStack } from '../../src/components/primatives/Stack';
+import { HStack } from './primatives/Stack';
 
 export type ProgressBarProps = {
   backgroundStyle?: ViewStyle;
@@ -35,22 +35,3 @@ export const ProgessBar = (props: ProgressBarProps) => {
     </HStack>
   );
 };
-
-const makeStyle = (theme: any) => {
-  return {
-    backgroundStyle: {
-      backgroundColor: theme.primary,
-    },
-    barStyle: {
-      backgroundColor: theme.secondary,
-    },
-    textStyle: {
-      color: theme.primary,
-    },
-  };
-};
-
-export const StyledProgessBar = withStyle<ProgressBarProps>(
-  ProgessBar,
-  makeStyle
-);
