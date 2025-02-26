@@ -13,7 +13,7 @@ export type ProgressBarProps = {
   barStyle?: ViewStyle;
   textStyle?: TextStyle;
   height?: DimensionValue;
-  progress: Number;
+  progress: number;
 };
 
 export const ProgessBar = (props: ProgressBarProps) => {
@@ -30,7 +30,7 @@ export const ProgessBar = (props: ProgressBarProps) => {
         flexMain={false}
         justifyContent="flex-start"
       >
-        <Text style={props.textStyle}>{`${props.progress}%`}</Text>
+        <Text style={props.textStyle}>{`${Math.round(props.progress)}%`}</Text>
       </HStack>
     </HStack>
   );
