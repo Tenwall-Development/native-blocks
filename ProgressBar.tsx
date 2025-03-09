@@ -6,7 +6,7 @@ import {
   type TextStyle,
   type ViewStyle,
 } from 'react-native';
-import { HStack } from '../../src/components/primatives/Stack';
+import { HStack } from './primatives/Stack';
 
 export type ProgressBarProps = {
   backgroundStyle?: ViewStyle;
