@@ -6,9 +6,10 @@ A headless, theme reactive UI library that gives you complete control.
 
 ### Basic Example
 
+Create custom component file in your components folder.
 /components/TextButton
 
-Import Component to create and necessary hooks
+Import component to style and all necessary hooks
 
 ```typescript
 import {
@@ -198,7 +199,7 @@ import checkMark from "../assets/check.svg";
 />;
 ```
 
-## installation
+## Installation
 
 This lets modify core structure of components
 Giving you a solid starting point but keeping complete control
