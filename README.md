@@ -205,5 +205,5 @@ This lets modify core structure of components
 Giving you a solid starting point but keeping complete control
 
 ```bash
-git submodule add git@github.com:Tenwall-Development/native-blocks-internal.git
+git submodule add git@github.com:Tenwall-Development/native-blocks.git
 ```
